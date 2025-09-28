@@ -1,0 +1,22 @@
+// import { fileURLToPath } from 'url';
+// import path, { dirname } from 'path';
+import express, {} from "express";
+import http from 'http';
+import apiRoutes from "./routes.js";
+import cors from 'cors';
+import helmet from 'helmet';
+import { engine } from 'express-handlebars';
+const port = 5000;
+const expressApp = express();
+const server = http.createServer(expressApp);
+// const __dirname = fileURLToPath(import.meta.url);
+expressApp.use(express.json());
+expressApp.use(helmet());
+expressApp.use(cors());
+expressApp.use(express.static('static'));
+expressApp.use(express.static('node_modules/bootstrap/dist/css'));
+expressApp.set('view engine', 'handlebars');
+expressApp.engine('handlebars', engine());
+expressApp.use('/api/apiRoutes', apiRoutes);
+server.listen(port, () => { console.log(`listening at http://localhost:${port}`); });
+//# sourceMappingURL=server.js.map

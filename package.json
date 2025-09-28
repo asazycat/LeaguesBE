@@ -1,13 +1,44 @@
 {
   "name": "leaguesbe",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend for leagues",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "server": "tsc-watch --onSuccess \"node dist/server/server.js\"",
+    "start": "npm-run-all server",
+    "watch": "webpack serve",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "module",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/helmet": "^0.0.48",
+    "@types/node": "^24.5.2",
+    "css-loader": "^7.1.2",
+    "husky": "^9.1.7",
+    "mocha": "^11.7.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-loader": "^8.2.0",
+    "sass": "^1.93.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "tsc-watch": "^7.1.1",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "helmet": "^8.1.0"
+  }
 }
